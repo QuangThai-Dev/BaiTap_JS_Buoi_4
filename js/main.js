@@ -143,22 +143,21 @@ var thongTinTamGiac = document.getElementById('thongTinTamGiac');
 thongTinTamGiac.style.display = 'none';
 var tamGiac = document.getElementById('tamGiac');
 var btnTamGiac = document.getElementById('btnTamGiac').onclick = function() {
-        var canhA = Number(document.getElementById('canhA').value);
-        var canhB = Number(document.getElementById('canhB').value);
-        var canhC = Number(document.getElementById('canhC').value);
-        var ketLuan = '';
-        if ((canhA + canhB <= canhC) || (canhB + canhC <= canhA) || (canhA + canhC <= canhB)) {
-            ketLuan = 'Đây không phải là một tam giác';
-        } else if (canhA == canhB && canhA == canhC && canhB == canhC) {
-            ketLuan = 'Tam giac đều';
-        } else if (canhA == canhB || canhA == canhC || canhB == canhC) {
-            ketLuan = 'Tam giác cân';
-        } else if (canhA * canhA == canhB * canhB + canhC * canhC || canhB * canhB == canhA * canhA + canhC * canhC || canhC * canhC == canhA * canhA + canhB * canhB) {
-            ketLuan = 'Tam giác vuông'
-        } else {
-            ketLuan = 'Tam giác thường'
-        }
-        thongTinTamGiac.style.display = 'block';
-        tamGiac.innerHTML = ketLuan;
+    var canhA = Number(document.getElementById('canhA').value);
+    var canhB = Number(document.getElementById('canhB').value);
+    var canhC = Number(document.getElementById('canhC').value);
+    var ketLuan = '';
+    if ((canhA + canhB <= canhC) || (canhB + canhC <= canhA) || (canhA + canhC <= canhB)) {
+        ketLuan = 'Đây không phải là một tam giác';
+    } else if (canhA == canhB && canhA == canhC && canhB == canhC) {
+        ketLuan = 'Tam giac đều';
+    } else if (canhA == canhB || canhA == canhC || canhB == canhC) {
+        ketLuan = 'Tam giác cân';
+    } else if (canhA * canhA == canhB * canhB + canhC * canhC || canhB * canhB == canhA * canhA + canhC * canhC || canhC * canhC == canhA * canhA + canhB * canhB) {
+        ketLuan = 'Tam giác vuông'
+    } else {
+        ketLuan = 'Tam giác thường'
     }
-    // if ((Number(canhA) * Number(canhA) == Number(canhB) * Number(canhB) + Number(canhC) * Number(canhC)) || (Number(canhB) * Number(canhB) == Number(canhA) * Number(canhA) + Number(canhC) * Number(canhC)) || (Number(canhC) * Number(canhC) == Number(canhA) * Number(canhA) + Number(canhB) * Number(canhB)))
+    thongTinTamGiac.style.display = 'block';
+    tamGiac.innerHTML = ketLuan;
+}
