@@ -14,27 +14,27 @@ var sapXep = document.getElementById('sapXep')
 var thongTin = document.getElementById('thongTin');
 thongTin.style.display = 'none';
 var btnSapXep = document.getElementById('btnSapXep').onclick = function() {
-    var soThuNhat = document.getElementById('soThuNhat').value;
-    var soThuHai = document.getElementById('soThuHai').value;
-    var soThuBa = document.getElementById('soThuBa').value;
+    var soThuNhat = Number(document.getElementById('soThuNhat').value);
+    var soThuHai = Number(document.getElementById('soThuHai').value);
+    var soThuBa = Number(document.getElementById('soThuBa').value);
     var temp;
     if (soThuNhat > soThuHai) {
         temp = soThuNhat;
         soThuNhat = soThuHai;
         soThuHai = temp
-        console.log(temp, soThuNhat, soThuHai)
+
     }
     if (soThuNhat > soThuBa) {
         temp = soThuNhat;
         soThuNhat = soThuBa;
         soThuBa = temp;
-        console.log(temp, soThuNhat, soThuBa)
+
     }
     if (soThuHai > soThuBa) {
         temp = soThuHai;
         soThuHai = soThuBa;
         soThuBa = temp;
-        console.log(temp, soThuHai, soThuBa)
+
     }
     thongTin.style.display = 'block';
     sapXep.innerHTML = 'Các số theo thứ tự tăng dần: ' + soThuNhat + ' - ' + soThuHai + ' - ' + soThuBa;
@@ -76,7 +76,7 @@ var btnChaoHoi = document.getElementById('btnChaoHoi').onclick = function() {
             chao = "Chào Em Gái";
             break;
         default:
-            chao = "Ai sử dụng máy??";
+            chao = "Không phải thành viên trong gia đình!!";
     }
     thongTinChao.style.display = 'block';
     loiChao.innerHTML = chao;
@@ -100,9 +100,9 @@ thongTinDem.style.display = 'none';
 var soChan = document.getElementById('soChan');
 var soLe = document.getElementById('soLe');
 var btnDem = document.getElementById('btnDem').onclick = function() {
-    var soNguyenMot = document.getElementById('soNguyenMot').value;
-    var soNguyenHai = document.getElementById('soNguyenHai').value;
-    var soNguyenBa = document.getElementById('soNguyenBa').value;
+    var soNguyenMot = Number(document.getElementById('soNguyenMot').value);
+    var soNguyenHai = Number(document.getElementById('soNguyenHai').value);
+    var soNguyenBa = Number(document.getElementById('soNguyenBa').value);
     var demChan = 0;
     var demLe = 0;
     if (soNguyenMot % 2 == 0) {
@@ -131,7 +131,8 @@ var btnDem = document.getElementById('btnDem').onclick = function() {
  *  - Nhập ba cạnh tam giác
  * b2:Handle:
  *  - Tạo 3 biến là ba cạnh tam giác: canhA, canhB, canhC
- *  - Xét điều kiện: canhA == canhB && canhA == canhC && canhB == canhC : tam giác đều
+ *  - Xét điều kiện: (canhA + canhB <= canhC) || (canhB + canhC <= canhA) || (canhA + canhC <= canhB) : không phải là 1 tam giác
+ *                   canhA == canhB && canhA == canhC && canhB == canhC : tam giác đều
  *                   canhA == canhB || canhA == canhC || canhB == canhC : tam giác cân
  *                   anhA * canhA == canhB * canhB + canhC * canhC || canhB * canhB == canhA * canhA + canhC * canhC || 
  *                   canhC * canhC == canhA * canhA + canhB * canhB : Tam giác vuông
@@ -142,18 +143,20 @@ var thongTinTamGiac = document.getElementById('thongTinTamGiac');
 thongTinTamGiac.style.display = 'none';
 var tamGiac = document.getElementById('tamGiac');
 var btnTamGiac = document.getElementById('btnTamGiac').onclick = function() {
-        var canhA = document.getElementById('canhA').value;
-        var canhB = document.getElementById('canhB').value;
-        var canhC = document.getElementById('canhC').value;
+        var canhA = Number(document.getElementById('canhA').value);
+        var canhB = Number(document.getElementById('canhB').value);
+        var canhC = Number(document.getElementById('canhC').value);
         var ketLuan = '';
-        if (canhA == canhB && canhA == canhC && canhB == canhC) {
+        if ((canhA + canhB <= canhC) || (canhB + canhC <= canhA) || (canhA + canhC <= canhB)) {
+            ketLuan = 'Đây không phải là một tam giác';
+        } else if (canhA == canhB && canhA == canhC && canhB == canhC) {
             ketLuan = 'Tam giac đều';
         } else if (canhA == canhB || canhA == canhC || canhB == canhC) {
             ketLuan = 'Tam giác cân';
         } else if (canhA * canhA == canhB * canhB + canhC * canhC || canhB * canhB == canhA * canhA + canhC * canhC || canhC * canhC == canhA * canhA + canhB * canhB) {
             ketLuan = 'Tam giác vuông'
         } else {
-            ketLuan = 'ba cạnh trên không phải của một tam giác'
+            ketLuan = 'Tam giác thường'
         }
         thongTinTamGiac.style.display = 'block';
         tamGiac.innerHTML = ketLuan;
