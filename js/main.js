@@ -18,23 +18,24 @@ var btnSapXep = document.getElementById('btnSapXep').onclick = function() {
     var soThuHai = Number(document.getElementById('soThuHai').value);
     var soThuBa = Number(document.getElementById('soThuBa').value);
     var temp;
+    if (isNaN(soThuNhat) || isNaN(soThuHai) || isNaN(soThuBa)) {
+        alert('Bạn phải nhập số');
+        return;
+    }
     if (soThuNhat > soThuHai) {
         temp = soThuNhat;
         soThuNhat = soThuHai;
         soThuHai = temp
-
     }
     if (soThuNhat > soThuBa) {
         temp = soThuNhat;
         soThuNhat = soThuBa;
         soThuBa = temp;
-
     }
     if (soThuHai > soThuBa) {
         temp = soThuHai;
         soThuHai = soThuBa;
         soThuBa = temp;
-
     }
     thongTin.style.display = 'block';
     sapXep.innerHTML = 'Các số theo thứ tự tăng dần: ' + soThuNhat + ' - ' + soThuHai + ' - ' + soThuBa;
@@ -105,6 +106,10 @@ var btnDem = document.getElementById('btnDem').onclick = function() {
     var soNguyenBa = Number(document.getElementById('soNguyenBa').value);
     var demChan = 0;
     var demLe = 0;
+    if (isNaN(soNguyenMot) || isNaN(soNguyenHai) || isNaN(soNguyenBa)) {
+        alert('Bạn phải nhập số');
+        return;
+    }
     if (soNguyenMot % 2 == 0) {
         demChan++;
     } else {
@@ -147,6 +152,10 @@ var btnTamGiac = document.getElementById('btnTamGiac').onclick = function() {
     var canhB = Number(document.getElementById('canhB').value);
     var canhC = Number(document.getElementById('canhC').value);
     var ketLuan = '';
+    if (isNaN(canhA) || isNaN(canhB) || isNaN(canhC)) {
+        alert('Bạn phải nhập số');
+        return;
+    }
     if ((canhA + canhB <= canhC) || (canhB + canhC <= canhA) || (canhA + canhC <= canhB)) {
         ketLuan = 'Đây không phải là một tam giác';
     } else if (canhA == canhB && canhA == canhC && canhB == canhC) {
