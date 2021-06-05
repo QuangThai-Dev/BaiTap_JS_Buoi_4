@@ -22,6 +22,10 @@ var btnSapXep = document.getElementById('btnSapXep').onclick = function() {
         alert('Bạn phải nhập số');
         return;
     }
+    if (soThuNhat !== parseInt(soThuNhat) || soThuHai !== parseInt(soThuHai) || soThuBa !== parseInt(soThuBa)) {
+        alert('Yêu cầu nhập số nguyên!!');
+        return;
+    }
     if (soThuNhat > soThuHai) {
         temp = soThuNhat;
         soThuNhat = soThuHai;
