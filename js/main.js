@@ -4,6 +4,8 @@
  *      - Nhập vào ba số nguyên
  * b2: handle
  *  -   Tạo ba biến số nguyên a, b, c và một biến temp 
+ *  -   Nếu người dùng nhập không phải là số thì báo lỗi
+ *  -   Nếu người dùng nhập vào số mà k phải số nguyên thì báo lỗi yêu cầu nhập lại
  *  -   so sánh hai số a và b: nếu a > b thì hoán đổi vị trí gán temp = a , a = b , b = temp;
  *  -   so sánh hai số a và c: nếu a > c thì hoán đổi vị trí gán temp = a, a = c, c = temp;
  *  -   so sánh hai số b và c: nếu b > c thì hoán đổi vị trí gán temp = b, b = c, c = temp;
